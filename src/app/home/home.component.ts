@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
+    sessionStorage.removeItem('accessToken');
+    sessionStorage.removeItem('refreshToken');
     this.router.navigateByUrl('/');
   }
 

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SessionService } from '../services/session.service';
 import { LoginRequest } from '../models/login-request';
 import { Session } from '../models/session';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { Session } from '../models/session';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private sessionService: SessionService) { }
+  constructor(private formBuilder: FormBuilder, private sessionService: SessionService, private router: Router) { }
 
   loginForm: FormGroup;
 
@@ -33,7 +34,12 @@ export class LoginComponent implements OnInit {
     };
 
     this.sessionService.login(request).subscribe(
-      (response: Session) => console.log('Response:', response),
+      (response: Session) => {
+        console.log('Response:', response);
+        sessionStorage.setItem('accessToken', response.accessToken);
+        sessionStorage.setItem('refreshToken', response.refreshToken);
+        this.router.navigate(['home']);
+      },
       error => console.error('Error on response', error)
     );
   }
