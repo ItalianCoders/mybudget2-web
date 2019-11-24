@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span>MyBudget</span>
+  <span class="toolbar-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>person</mat-icon>
+    <span>Gianluca</span>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>settings_applications</mat-icon>
+      <span>Impostazioni</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<p>home works!</p>
