@@ -6,5 +6,8 @@
   <mat-form-field>
     <input matInput type="password" placeholder="Password" formControlName="password" required>
   </mat-form-field>
+  <mat-checkbox formControlName="privacy" required>
+    <a href="https://raw.githubusercontent.com/wiki/ItalianCoders/myBudget-mobile-android/privacy/privacy_policy.pdf">PRIVACY POLICY</a>
+  </mat-checkbox>
   <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Log In</button>
 </form>
