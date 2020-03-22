@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginRequest } from 'src/app/models/login-request';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SessionService } from 'src/app/services/session.service';
+import { LoginRequest } from 'src/app/models/login-request';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private sessionService: SessionService) { }
