@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoginRequest } from '../models/login-request';
-import { Observable } from 'rxjs';
 import { Session } from '../models/session';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
@@ -11,19 +10,15 @@ import { Router } from '@angular/router';
 })
 export class SessionService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
+  user: Session;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   login(request: LoginRequest): void {
-    this.http.post<Session>(environment.baseUrlPublic + 'session', request).subscribe(
+    this.http.post<Session>(`${environment.baseUrlPublic}/session`, request).subscribe(
       (response: Session) => {
         console.log('Response', response);
-        sessionStorage.setItem('access-token', response.accessToken);
+        this.user = response;
         this.router.navigate(['dashboard']);
       },
       error => console.error('Error', error)
@@ -31,9 +26,10 @@ export class SessionService {
   }
 
   isAuthenticated(): boolean {
-    if (sessionStorage.getItem('accessToken')) {
+    if (this.user) {
       return true;
     }
+    this.router.navigate(['login']);
     return false;
   }
 }

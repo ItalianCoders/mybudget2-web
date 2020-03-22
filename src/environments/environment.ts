@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://144.91.65.212:80/my-budget-api/v1/',
-  baseUrlPublic: 'https://144.91.65.212:80/my-budget-api/public/v1/'
+  baseUrl: 'https://144.91.65.212:80/my-budget-api/v1',
+  baseUrlPublic: 'https://144.91.65.212:80/my-budget-api/public/v1'
 };
 
 /*
