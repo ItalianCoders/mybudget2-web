@@ -11,7 +11,6 @@ import { Subject } from 'rxjs';
 })
 export class SessionService {
 
-  user: Session;
   error: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -20,7 +19,8 @@ export class SessionService {
     this.http.post<Session>(`${environment.baseUrlPublic}/session`, request).subscribe(
       (response: Session) => {
         console.log('Response', response);
-        this.user = response;
+        sessionStorage.setItem('access-token', response.accessToken);
+        sessionStorage.setItem('refresh-token', response.refreshToken);
         this.router.navigate(['dashboard']);
         this.error.next(false);
       },
@@ -32,7 +32,7 @@ export class SessionService {
   }
 
   isAuthenticated(): boolean {
-    if (this.user) {
+    if (sessionStorage.getItem('access-token')) {
       return true;
     }
     this.router.navigate(['login']);
