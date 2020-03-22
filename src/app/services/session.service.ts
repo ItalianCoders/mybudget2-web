@@ -4,6 +4,7 @@ import { Session } from '../models/session';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class SessionService {
 
   user: Session;
+  error: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -20,8 +22,12 @@ export class SessionService {
         console.log('Response', response);
         this.user = response;
         this.router.navigate(['dashboard']);
+        this.error.next(false);
       },
-      error => console.error('Error', error)
+      error => {
+        console.error('Error during authentication!!', error);
+        this.error.next(true);
+      }
     );
   }
 
