@@ -26,6 +26,10 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     this.errorSubscription = this.sessionService.error.subscribe(
       response => this.wrongCredentials = response
     );
+
+    this.loginForm.valueChanges.subscribe(
+      values => this.wrongCredentials ? this.wrongCredentials = false : null
+    );
   }
 
   ngOnDestroy(): void {
