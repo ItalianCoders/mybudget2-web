@@ -1,0 +1,28 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]=true>
+    <mat-expansion-panel-header>Ultimi Movimenti</mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>directions_car</mat-icon>
+        <div mat-line>Item 1</div>
+        <div mat-line style="font-weight: bold;">{{'2020-04-14' | date}}</div>
+        <div>{{'12' | currency: 'EUR'}}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <mat-icon mat-list-icon>house</mat-icon>
+        <div mat-line>Item 2</div>
+        <div mat-line style="font-weight: bold;">{{'2020-04-14' | date}}</div>
+        <div>{{'12' | currency: 'EUR'}}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <mat-icon mat-list-icon>restaurant</mat-icon>
+        <div mat-line>Item 3</div>
+        <div mat-line style="font-weight: bold;">{{'2020-04-14' | date}}</div>
+        <div>{{'12' | currency: 'EUR'}}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
