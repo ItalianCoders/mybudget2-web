@@ -1,0 +1,22 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Alimentari",
+      "description": "Alimentari",
+      "isReadOnly": true
+    },
+    {
+      "id": 2,
+      "name": "Casa",
+      "description": "Bollette",
+      "isReadOnly": true
+    },
+    {
+      "id": 3,
+      "name": "Veicoli",
+      "description": "Manutenzione auto",
+      "isReadOnly": true
+    }
+  ]
+}
