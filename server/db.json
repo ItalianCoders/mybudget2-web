@@ -18,5 +18,65 @@
       "description": "Manutenzione auto",
       "isReadOnly": true
     }
+  ],
+  "movements": {
+    "first": true,
+    "last": false,
+    "size": 30,
+    "totalElements": 300,
+    "totalPages": 10,
+    "number": 10,
+    "contents": [
+      {
+        "id": 1,
+        "amount": 200,
+        "category": {
+          "id": 1,
+          "name": "Alimentari",
+          "description": "Alimentari",
+          "isReadOnly": true
+        },
+        "executedAt": "2020-04-16T16:29:27.580Z",
+        "note": "Spesa settimanale"
+      },
+      {
+        "id": 2,
+        "amount": 50,
+        "category": {
+          "id": 3,
+          "name": "Veicoli",
+          "description": "Manutenzione auto",
+          "isReadOnly": true
+        },
+        "executedAt": "2020-04-15T10:30:47.267Z",
+        "note": "Cambio gomme"
+      }
+    ]
+  },
+  "singleMovement": [
+    {
+      "id": 1,
+      "amount": 200,
+      "category": {
+        "id": 1,
+        "name": "Alimentari",
+        "description": "Alimentari",
+        "isReadOnly": true
+      },
+      "executedAt": "2020-04-16T16:29:27.580Z",
+      "note": "Spesa settimanale"
+    },
+    {
+      "id": 2,
+      "amount": 50,
+      "category": {
+        "id": 3,
+        "name": "Veicoli",
+        "description": "Manutenzione auto",
+        "isReadOnly": true
+      },
+      "executedAt": "2020-04-15T10:30:47.267Z",
+      "note": "Cambio gomme"
+    }
   ]
 }
