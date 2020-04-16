@@ -2,27 +2,14 @@
   <mat-expansion-panel [expanded]=true>
     <mat-expansion-panel-header>Ultimi Movimenti</mat-expansion-panel-header>
     <mat-list>
-      <mat-list-item>
-        <mat-icon mat-list-icon>directions_car</mat-icon>
-        <div mat-line>Item 1</div>
-        <div mat-line style="font-weight: bold;">{{'2020-04-14' | date}}</div>
-        <div>{{'12' | currency: 'EUR'}}</div>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <mat-icon mat-list-icon>house</mat-icon>
-        <div mat-line>Item 2</div>
-        <div mat-line style="font-weight: bold;">{{'2020-04-14' | date}}</div>
-        <div>{{'12' | currency: 'EUR'}}</div>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <mat-icon mat-list-icon>restaurant</mat-icon>
-        <div mat-line>Item 3</div>
-        <div mat-line style="font-weight: bold;">{{'2020-04-14' | date}}</div>
-        <div>{{'12' | currency: 'EUR'}}</div>
-      </mat-list-item>
-      <mat-divider></mat-divider>
+      <ng-container *ngFor="let movement of movements; last as last">
+        <mat-list-item>
+          <div mat-line>{{movement.note}}</div>
+          <div mat-line style="font-weight: bold;">{{movement.executedAt | date}}</div>
+          <div>{{movement.amount | currency: 'EUR'}}</div>
+        </mat-list-item>
+        <mat-divider *ngIf="!last"></mat-divider>
+      </ng-container>
     </mat-list>
   </mat-expansion-panel>
 </mat-accordion>
