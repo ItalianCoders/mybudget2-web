@@ -20,6 +20,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
+import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 registerLocaleData(localeIt);
 
@@ -28,7 +30,8 @@ registerLocaleData(localeIt);
     AppComponent,
     LoginPageComponent,
     DashboardPageComponent,
-    LastMovementsComponent
+    LastMovementsComponent,
+    CategoriesPageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ registerLocaleData(localeIt);
     MatIconModule,
     MatExpansionModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'it'}
