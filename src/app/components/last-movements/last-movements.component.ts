@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MovementService } from '../services/movement.service';
-import { Movement } from '../models/movement';
+import { MovementService } from 'src/app/services/movement.service';
+import { Movement } from 'src/app/models/movement';
 
 @Component({
   selector: 'app-last-movements',
