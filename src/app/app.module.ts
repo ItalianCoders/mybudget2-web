@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,10 @@ import { LastMovementsComponent } from './last-movements/last-movements.componen
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { registerLocaleData } from '@angular/common';
+import localeIt from '@angular/common/locales/it';
+
+registerLocaleData(localeIt);
 
 @NgModule({
   declarations: [
@@ -41,7 +45,9 @@ import { MatDividerModule } from '@angular/material/divider';
     MatListModule,
     MatDividerModule
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'it'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
