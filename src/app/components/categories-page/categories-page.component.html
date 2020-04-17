@@ -7,33 +7,21 @@
 </mat-toolbar>
 <button mat-raised-button type="button" color="accent">Nuova Categoria</button>
 <mat-list>
-  <mat-list-item>
-    <div mat-line>Categoria 1</div>
-    <div mat-line >Descrizione: Categoria 1</div>
-    <div>
-      <button mat-icon-button type="button" matTooltip="Modifica">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </div>
-    <div>
-      <button mat-icon-button type="button" matTooltip="Elimina">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
-  </mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>
-    <div mat-line>Categoria 2</div>
-    <div mat-line >Descrizione: Categoria 2</div>
-    <div>
-      <button mat-icon-button type="button">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </div>
-    <div>
-      <button mat-icon-button type="button">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
-  </mat-list-item>
+  <ng-container *ngFor="let category of categories; last as last">
+    <mat-list-item>
+      <div mat-line>{{category.name}}</div>
+      <div mat-line >Descrizione: {{category.description}}</div>
+      <div>
+        <button mat-icon-button type="button" matTooltip="Modifica">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button mat-icon-button type="button" matTooltip="Elimina" [disabled]="category.isReadOnly" (click)="deleteCategory(category.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+    <mat-divider *ngIf="!last"></mat-divider>
+  </ng-container>
 </mat-list>
