@@ -5,7 +5,7 @@
   <span class="spacer"></span>
   <mat-icon>person</mat-icon>
 </mat-toolbar>
-<button mat-raised-button type="button" color="accent">Nuova Categoria</button>
+<button mat-raised-button type="button" color="accent" [routerLink]="['./new']">Nuova Categoria</button>
 <mat-list>
   <ng-container *ngFor="let category of categories; last as last">
     <mat-list-item>

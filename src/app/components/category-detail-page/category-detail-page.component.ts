@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
-import { Category } from 'src/app/models/category';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,12 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CategoryDetailPageComponent implements OnInit {
   categoryDetailForm: FormGroup;
-  private id = +this.route.snapshot.paramMap.get('id');
+  private categoryId = +this.route.snapshot.paramMap.get('id');
 
   constructor(
     private formBuilder: FormBuilder,
     private categoryService: CategoryService,
-    private route: ActivatedRoute, private router: Router
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,25 +25,33 @@ export class CategoryDetailPageComponent implements OnInit {
       description: ['', Validators.required]
     });
 
-    this.categoryService.getCategory(this.id).subscribe(
-      response => {
-        this.categoryDetailForm.setValue({
-          name: response.name,
-          description: response.description
-        });
+    if(this.categoryId !== 0){
+      if(!isNaN(this.categoryId)){
+        this.categoryService.getCategory(this.categoryId).subscribe(
+          response => {
+            this.categoryDetailForm.setValue({
+              name: response.name,
+              description: response.description
+            });
+          }
+        );
       }
-    );
+      else {
+        console.error('pagina non esiste');
+      }
+    }
   }
 
-  edit(): void {
-    if (this.categoryDetailForm.valid) {
-      const request = {
-        id: this.id,
-        ...this.categoryDetailForm.value
-      };
-
-      this.categoryService.editCategory(request).subscribe(
-        response => this.router.navigate(['../'], {relativeTo: this.route})
+  save(): void {
+    console.log('id', this.categoryId);
+    if(this.categoryId === 0) {
+      this.categoryService.addCategory(this.categoryDetailForm.value).subscribe(
+        () => this.router.navigate(['../'], {relativeTo: this.route})
+      );
+    }
+    else {
+      this.categoryService.editCategory(this.categoryId, this.categoryDetailForm.value).subscribe(
+        () => this.router.navigate(['../'], {relativeTo: this.route})
       );
     }
   }

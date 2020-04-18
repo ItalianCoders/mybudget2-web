@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
   {path: 'categories', component: CategoriesPageComponent, canActivate: [AuthGuard]},
+  {path: 'categories/new', component: CategoryDetailPageComponent, canActivate: [AuthGuard]},
   {path: 'categories/:id', component: CategoryDetailPageComponent, canActivate: [AuthGuard]}
 ];
 

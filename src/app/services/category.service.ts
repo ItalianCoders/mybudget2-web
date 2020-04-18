@@ -19,13 +19,17 @@ export class CategoryService {
     return this.http.get<Category>(`${environment.baseUrl}/categories/${id}`);
   }
 
-  editCategory(category: Category) {
+  addCategory(category: Category): Observable<Category> {
+    return this.http.post<Category>(`${environment.baseUrl}/categories`, category);
+  }
+
+  editCategory(id: number, category: Category) {
     const request = {
       name: category.name,
       description: category.description
     };
 
-    return this.http.put(`${environment.baseUrl}/categories/${category.id}`, request);
+    return this.http.put(`${environment.baseUrl}/categories/${id}`, request);
   }
 
   deleteCategory(id: number) {
