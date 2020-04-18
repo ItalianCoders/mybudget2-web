@@ -22,6 +22,7 @@ import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CategoryDetailPageComponent } from './components/category-detail-page/category-detail-page.component';
 
 registerLocaleData(localeIt);
 
@@ -31,7 +32,8 @@ registerLocaleData(localeIt);
     LoginPageComponent,
     DashboardPageComponent,
     LastMovementsComponent,
-    CategoriesPageComponent
+    CategoriesPageComponent,
+    CategoryDetailPageComponent
   ],
   imports: [
     BrowserModule,

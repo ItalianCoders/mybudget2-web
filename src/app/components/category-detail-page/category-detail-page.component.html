@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span>My Budget</span>
+  <button mat-button>Movimenti</button>
+  <button mat-button>Categorie</button>
+  <span class="spacer"></span>
+  <mat-icon>person</mat-icon>
+</mat-toolbar>
+<form [formGroup]="categoryDetailForm" (ngSubmit)="edit()">
+  <p>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Nome" formControlName="name">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Descrizione" formControlName="description">
+    </mat-form-field>
+  </p>
+    <button mat-raised-button type="submit" [disabled]="!categoryDetailForm.valid" color="accent">Salva</button>
+</form>
