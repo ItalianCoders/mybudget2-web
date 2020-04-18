@@ -12,7 +12,7 @@
       <div mat-line>{{category.name}}</div>
       <div mat-line >Descrizione: {{category.description}}</div>
       <div>
-        <button mat-icon-button type="button" matTooltip="Modifica">
+        <button mat-icon-button type="button" matTooltip="Modifica" [routerLink]="['./', category.id]">
           <mat-icon>edit</mat-icon>
         </button>
       </div>
