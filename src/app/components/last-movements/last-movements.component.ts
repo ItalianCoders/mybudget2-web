@@ -17,7 +17,7 @@ export class LastMovementsComponent implements OnInit {
       response => {
         this.movements = response.contents;
       },
-      error => console.error('Error diring retrive last movements!!', error)
+      error => console.error('Error during retrive last movements!!', error)
     );
   }
 

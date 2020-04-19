@@ -18,7 +18,6 @@ export class SessionService {
   login(request: LoginRequest): void {
     this.http.post<Session>(`${environment.baseUrlPublic}/session`, request).subscribe(
       (response: Session) => {
-        console.log('Response', response);
         sessionStorage.setItem('access-token', response.accessToken);
         sessionStorage.setItem('refresh-token', response.refreshToken);
         this.router.navigate(['dashboard']);

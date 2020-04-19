@@ -43,7 +43,6 @@ export class CategoryDetailPageComponent implements OnInit {
   }
 
   save(): void {
-    console.log('id', this.categoryId);
     if(this.categoryId === 0) {
       this.categoryService.addCategory(this.categoryDetailForm.value).subscribe(
         () => this.router.navigate(['../'], {relativeTo: this.route})
