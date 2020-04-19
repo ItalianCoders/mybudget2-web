@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardPageComponent } from './components/dashboard-page/dashboard-page.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -23,6 +23,7 @@ import localeIt from '@angular/common/locales/it';
 import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CategoryDetailPageComponent } from './components/category-detail-page/category-detail-page.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 registerLocaleData(localeIt);
 
@@ -52,7 +53,8 @@ registerLocaleData(localeIt);
     MatTooltipModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'it'}
+    {provide: LOCALE_ID, useValue: 'it'},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
