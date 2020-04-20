@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if(request.url.match(`${environment.baseUrl}*`)) {
+    if (request.url.match(`${environment.baseUrl}*`)) {
       const requestModified = request.clone({
         setHeaders: {
           'x-access-token': sessionStorage.getItem('access-token')

@@ -25,8 +25,8 @@ export class CategoryDetailPageComponent implements OnInit {
       description: ['', Validators.required]
     });
 
-    if(this.categoryId !== 0){
-      if(!isNaN(this.categoryId)){
+    if (this.categoryId !== 0) {
+      if (!isNaN(this.categoryId)) {
         this.categoryService.getCategory(this.categoryId).subscribe(
           response => {
             this.categoryDetailForm.setValue({
@@ -35,20 +35,18 @@ export class CategoryDetailPageComponent implements OnInit {
             });
           }
         );
-      }
-      else {
+      } else {
         console.error('pagina non esiste');
       }
     }
   }
 
   save(): void {
-    if(this.categoryId === 0) {
+    if (this.categoryId === 0) {
       this.categoryService.addCategory(this.categoryDetailForm.value).subscribe(
         () => this.router.navigate(['../'], {relativeTo: this.route})
       );
-    }
-    else {
+    } else {
       this.categoryService.editCategory(this.categoryId, this.categoryDetailForm.value).subscribe(
         () => this.router.navigate(['../'], {relativeTo: this.route})
       );
