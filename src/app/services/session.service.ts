@@ -31,10 +31,6 @@ export class SessionService {
   }
 
   isAuthenticated(): boolean {
-    if (sessionStorage.getItem('access-token')) {
-      return true;
-    }
-    this.router.navigate(['login']);
-    return false;
+    return sessionStorage.getItem('access-token') ? true : false;
   }
 }
