@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { SessionService } from 'src/app/services/session.service';
 import { LoginRequest } from 'src/app/models/login-request';
-import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class LoginPageComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   wrongCredentials: boolean;
 
@@ -44,5 +44,4 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       this.sessionService.login(request);
     }
   }
-
 }

@@ -4,7 +4,6 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginPageComponent } from './components/login-page/login-page.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -30,13 +29,12 @@ registerLocaleData(localeIt);
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
     DashboardPageComponent,
     LastMovementsComponent,
     CategoriesPageComponent,
     CategoryDetailPageComponent
   ],
-  imports: [
+  imports: [ // TODO: Remove unused imports after refactor in modules
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
