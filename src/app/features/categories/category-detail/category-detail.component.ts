@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-category-detail-page',
-  templateUrl: './category-detail-page.component.html',
-  styleUrls: ['./category-detail-page.component.scss']
+  selector: 'app-category-detail',
+  templateUrl: './category-detail.component.html',
+  styleUrls: ['./category-detail.component.scss']
 })
-export class CategoryDetailPageComponent implements OnInit {
+export class CategoryDetailComponent implements OnInit {
   categoryDetailForm: FormGroup;
   private categoryId = +this.route.snapshot.paramMap.get('id');
 
