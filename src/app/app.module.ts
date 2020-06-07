@@ -19,7 +19,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { registerLocaleData } from '@angular/common';
 import localeIt from '@angular/common/locales/it';
-import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CategoryDetailPageComponent } from './components/category-detail-page/category-detail-page.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -32,7 +31,6 @@ registerLocaleData(localeIt);
     AppComponent,
     DashboardPageComponent,
     LastMovementsComponent,
-    CategoriesPageComponent,
     CategoryDetailPageComponent
   ],
   imports: [ // TODO: Remove unused imports after refactor in modules
