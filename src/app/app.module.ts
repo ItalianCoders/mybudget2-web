@@ -23,6 +23,7 @@ import { CategoriesPageComponent } from './components/categories-page/categories
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CategoryDetailPageComponent } from './components/category-detail-page/category-detail-page.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CoreModule } from './core/core.module';
 
 registerLocaleData(localeIt);
 
@@ -48,7 +49,8 @@ registerLocaleData(localeIt);
     MatExpansionModule,
     MatListModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CoreModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'it'},
